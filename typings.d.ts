@@ -62,7 +62,7 @@ export interface Project extends SanityBody {
 }
 
 export interface Social extends SanityBody {
-  _id: Key | null | undefined
+  // _id: Key | null | undefined
   _type: "social"
   title: string
   url: string
