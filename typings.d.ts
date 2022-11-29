@@ -48,7 +48,7 @@ export interface Experience extends SanityBody {
   dateEnded: date
   technologies: Technology[]
   courseExplanation: string
-  // points: string[]
+  
 }
 
 export interface Project extends SanityBody {

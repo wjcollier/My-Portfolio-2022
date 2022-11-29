@@ -29,6 +29,7 @@ export default function Header({socials}: Props) {
       >
         {socials.map((social) => (
           <SocialIcon
+            target={"_blank"}
             key={social._id}
             url={social.url}
             fgColor='gray'

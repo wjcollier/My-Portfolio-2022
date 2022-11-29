@@ -1,6 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
 import React from 'react'
-import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { PageInfo } from '../typings'
 import { urlFor } from '../sanity'
@@ -35,8 +34,7 @@ export default function About({ pageInfo }: Props) {
 				viewport={{
 					once: true,
 				}}
-				
-				className='-mb-20  md:mb-0 flex-shrink-0 w-40 h-40 rounded-full object-cover md:rounded-lg md:w-96 md:h-96 xl:w-[500px] xl:h-[500px] '
+				className='-mb-20  md:mb-0 flex-shrink-0 w-40 h-40 rounded-2xl object-cover md:rounded-2xl md:w-96 md:h-96 xl:w-[500px] xl:h-[500px] '
 				src={urlFor(pageInfo?.profilePic).url()}
 				alt='profile image'
 				width={150}

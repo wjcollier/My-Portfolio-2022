@@ -4,7 +4,7 @@ import BackgroundCircles from "./BackgroundCircles"
 import Image from "next/image"
 import Link from "next/link"
 import { PageInfo } from "../typings"
-import imagePic from '../public/skullsanity.jpeg'
+// import imagePic from '../public/skullsanity.jpeg'
 import { urlFor } from "../sanity"
 
 type Props = {
@@ -12,7 +12,7 @@ type Props = {
 }
 
 export default function Hero({ pageInfo }: Props) {
-  const [text, count] = useTypewriter({
+  const [text] = useTypewriter({
 		words: [
 			`Hi, The Name's ${pageInfo?.name}`,
 			'Coder/Master Chef.tsx',
@@ -27,7 +27,7 @@ export default function Hero({ pageInfo }: Props) {
     <div className='h-screen flex flex-col space-y-8 items-center justify-center text-center overflow-hidden '>
       <BackgroundCircles />
       <Image
-        className='relative object-cover rounded-full'
+        className='relative object-cover rounded-full hover:animate-spin'
         src={urlFor(pageInfo?.heroImage).url()}
         alt='cover image'
         width={200}

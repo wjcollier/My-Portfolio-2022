@@ -11,6 +11,8 @@ import Hero from "../components/Hero"
 import Projects from "../components/Projects"
 import Skills from "../components/Skills"
 import WorkExperience from "../components/WorkExperience"
+import { server as host } from '../config'
+
 // import { sanityClient } from "../sanity"
 import { Experience, PageInfo, Project, Technology, Social } from "../typings"
 import { fetchExperiences } from "../utils/fetchExperiences"
@@ -29,7 +31,7 @@ type Props = {
 
 const Home  = ({pageInfo, experiences, projects, skills, socials }: Props) => {
   return (
-		<div className='bg-[rgb(36,36,36)] text-white h-screen snap-y snap-mandatory overflow-y-scroll overflow-x-hidden z-0 scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[#FF00E4]/80'>
+		<div className='bg-[rgb(36,36,36)] text-white h-screen snap-y snap-mandatory overflow-y-scroll overflow-x-hidden  z-0 scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[#FF00E4]/80'>
 			<Head>
 				<link rel='shortcut icon' href='/skull-colors2.png' />
 				<title>Billy Joe's Portfolio</title>
@@ -80,24 +82,23 @@ const Home  = ({pageInfo, experiences, projects, skills, socials }: Props) => {
 
 export default Home
 
-export const getStaticProps: GetStaticProps<Props>  = async () => {
-  const pageInfo: PageInfo = await fetchPageInfo();
-  const experiences: Experience[] = await fetchExperiences();
-  const skills: Technology[] = await fetchSkills();
-  const projects: Project[] = await fetchProjects();
-  const socials: Social[] = await fetchSocials();
-	
-	
-  return {
-    props: {
-      pageInfo,
-      experiences, 
-      skills, 
-      projects,
-      socials,
-        },
-        revalidate: 10,
-  }
+export const getStaticProps = async () => {
+	const pageInfo: PageInfo = await fetchPageInfo(host)
+	const experiences: Experience[] = await fetchExperiences(host)
+	const skills: Technology[] = await fetchSkills(host)
+	const projects: Project[] = await fetchProjects(host)
+	const socials: Social[] = await fetchSocials(host)
+
+	return {
+		props: {
+			pageInfo,
+			experiences,
+			skills,
+			projects,
+			socials,
+		},
+		revalidate: 10,
+	}
 }
 
 
