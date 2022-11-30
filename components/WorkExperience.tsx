@@ -34,7 +34,7 @@ export default function WorkExperience({ experiences }: Props) {
         Training
       </h3>
 
-      <div className='w-full flex space-x-5 overflow-x-scroll p-10 snap-x scrollbar-thin snap-mandatory scrollbar-track-gray-400/20 scrollbar-thumb-[#FF00E4]/80'>
+      <div className='w-full flex space-x-5 overflow-x-scroll p-10 snap-x scrollbar-thin snap-mandatory scrollbar-track-gray-400/20 scrollbar-thumb-[#FF00E4]/80 mb-8'>
         {experiences?.sort(dateSortExperience).map((experience) => (
           <ExperienceCard key={experience._id} experience={experience} />
         ))}

@@ -6,6 +6,7 @@ import { motion } from 'framer-motion'
 // import { Carousel } from "react-responsive-carousel"
 import { Project } from '../typings'
 import { urlFor } from '../sanity'
+// import { SocialIcon } from 'react-social-icons'
 
 type Props = {
 	projects: Project[]
@@ -39,11 +40,11 @@ function Projects({ projects }: Props) {
 				Projects
 			</h3>
 
-			<div className='relative w-full flex space-x-5 overflow-x-scroll  p-10 snap-x scrollbar-thin  snap-mandatory  scrollbar-track-gray-400/20 scrollbar-thumb-[#FF00E4]/80 z-20 mt-20'>
+			<div className='relative w-full flex space-x-5 overflow-x-scroll overflow-y-hidden p-10 snap-x scrollbar-thin  snap-mandatory  scrollbar-track-gray-400/20 scrollbar-thumb-[#FF00E4]/80 z-20 mt-20'>
 				{projects?.sort(dateSortProjects).map((project, i) => (
 					<div
 						key={project._id}
-						className='w-screen flex-shrink-0 snap-center flex flex-col space-y-2 items-center justify-center p-10 md:p-20 mt-20'>
+						className='w-screen flex-shrink-0 snap-center flex flex-col space-y-2 items-center justify-center p-10 md:p-44 mt-20'>
 						<motion.img
 							initial={{ y: -300, opacity: 0 }}
 							transition={{
@@ -73,6 +74,14 @@ function Projects({ projects }: Props) {
 										{project?.title}
 									</span>
 								</a>
+								{/* <SocialIcon
+									className='cursor-pointer px-10 hover:bg-[#FFE55C]/30 border-l hover:border transition-all ease-in hover:rounded-md'
+									url={project?.linkToBuild}
+									network='sharethis'
+									fgColor='#FFE55C'
+									bgColor='transparent'
+									target='_blank'
+								/> */}
 								<a
 									href={project?.linkToRepo}
 									target='POST'

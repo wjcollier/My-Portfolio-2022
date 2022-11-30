@@ -1,10 +1,10 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import Skill from './Skill'
-import { Technology } from '../typings'
+import { Skill as SkillType  } from '../typings'
 
 type Props = {
-  skills: Technology[]
+	skills: SkillType[]
 }
 
 export default function Skills({skills}: Props) {
