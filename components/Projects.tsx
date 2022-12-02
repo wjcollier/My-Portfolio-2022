@@ -72,14 +72,7 @@ function Projects({ projects }: Props) {
 										{project?.title}
 									</span>
 								</a>
-								{/* <SocialIcon
-									className='cursor-pointer px-10 hover:bg-[#FFE55C]/30 border-l hover:border transition-all ease-in hover:rounded-md'
-									url={project?.linkToBuild}
-									network='sharethis'
-									fgColor='#FFE55C'
-									bgColor='transparent'
-									target='_blank'
-								/> */}
+								
 								<a
 									href={project?.linkToRepo}
 									target='POST'
