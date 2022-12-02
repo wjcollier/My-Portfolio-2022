@@ -2,11 +2,9 @@
 import Image from 'next/image'
 import React from 'react'
 import { motion } from 'framer-motion'
-// import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
-// import { Carousel } from "react-responsive-carousel"
 import { Project } from '../typings'
 import { urlFor } from '../sanity'
-// import { SocialIcon } from 'react-social-icons'
+
 
 type Props = {
 	projects: Project[]

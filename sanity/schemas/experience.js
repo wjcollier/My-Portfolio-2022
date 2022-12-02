@@ -29,11 +29,7 @@ export default {
 			title: 'DateEnded',
 			type: 'date',
 		},
-		// {
-		//   name: "isCurrentlyWorkingHere",
-		//   title: "IsCurrentlyWorkingHere",
-		//   type: "boolean",
-		// },
+		
 		{
 			name: 'technologies',
 			title: 'Technologies',
