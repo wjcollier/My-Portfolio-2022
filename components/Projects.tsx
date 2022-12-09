@@ -33,7 +33,7 @@ function Projects({ projects }: Props) {
 			whileInView={{
 				opacity: 1,
 			}}
-			className='md:h-screen w-full relative overflow-hidden text-left flex flex-col justify-center mx-auto items-center z-0'>
+			className='md:h-screen w-full relative overflow-hidden text-left flex flex-col justify-center lg:h-fit  mx-auto items-center z-0'>
 			<h3 className='absolute top-14 sm:top-20  uppercase tracking-[10px] sm:tracking-[20px] text-gray-500 text-2xl pt-5'>
 				Projects
 			</h3>
@@ -42,7 +42,7 @@ function Projects({ projects }: Props) {
 				{projects?.sort(dateSortProjects).map((project, i) => (
 					<div
 						key={project._id}
-						className='w-screen flex-shrink-0 snap-center flex flex-col space-y-1 items-center justify-center p-1 md:p-44 mt-16'>
+						className='w-screen flex-shrink-0 snap-center flex flex-col space-y-1 items-center justify-center p-1 md:p-44 lg:p-10 mt-16'>
 						<motion.img
 							initial={{  opacity: 0 }}
 							transition={{

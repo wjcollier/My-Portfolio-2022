@@ -13,6 +13,8 @@
 /out/
 
 sanity/node_modules
+/.vercel/
+/.vscode/
 
 
 # production

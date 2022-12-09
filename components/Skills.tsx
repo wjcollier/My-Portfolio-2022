@@ -16,11 +16,11 @@ export default function Skills({skills}: Props) {
     return 0;
   };
   return (
-		<div className='flex relative flex-col text-center md:text-left  max-w-[2000px] xl:px-10 sm:h-screen  py-20 space-y-10 justify-start lg:justify-evenly   mx-auto items-center my-16 '>
+		<div className='flex relative flex-col text-center md:text-left  max-w-[2000px] xl:px-10 sm:h-screen py-20 space-y-10 justify-start lg:justify-evenly lg:h-full  mx-auto items-center my-16 '>
 			<h3 className=' absolute top-14 uppercase  text-gray-500 text-2xl  z-40 md:tracking-[20px] tracking-[10px] text-gray_600 '>
 				Tech Skills
 			</h3>
-			<div className='grid grid-cols-3 mt-14  md:grid-cols-4 lg:grid-cols-5 gap-x-6 gap-y-4 lg:gap-x-10 lg:gap-y-8 '>
+			<div className='grid grid-cols-3 mt-14  md:grid-cols-4 lg:grid-cols-6 gap-x-6 gap-y-4 lg:gap-x-10 lg:gap-y-10 min-h-full lg:pt-8'>
 				{skills?.sort(sortSkills).map((skill, ind, thisArr) => (
 					<Skill
 						setSelectedSkill={setSelectedSkill}
@@ -35,9 +35,9 @@ export default function Skills({skills}: Props) {
 				initial={{ x: 30, opacity: 0 }}
 				whileInView={{ x: 0, opacity: 1 }}
 				transition={{ duration: 0.5 }}
-				className='h-5 flex flex-col gap-3 text-center'>
+				className='h-5 flex flex-col gap-3 text-center '>
 				{
-					<p className='text-xl md:text-3xl italic  text-gray-200 font-bold'>
+					<p className='text-xl md:text-3xl italic  text-gray-200 font-bold lg:'>
 						{selectedSkill}
 					</p>
 				}

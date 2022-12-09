@@ -23,14 +23,15 @@ export default function Hero({ pageInfo }: Props) {
   })
 
   return (
-		<div className='min-h-screen flex flex-col space-y-8 items-center justify-center text-center overflow-hidden '>
+		<div className='min-h-screen flex flex-col space-y-8 items-center justify-center text-center overflow-hidden  '>
 			<BackgroundCircles />
 			<Image
-				className='relative object-cover rounded-full hover:animate-spin mx-auto'
+				className='relative object-cover rounded-full hover:animate-spin mx-auto '
 				src={urlFor(pageInfo?.heroImage).url()}
 				alt='cover image'
-				width='200px'
-				height='200px'
+				width='150px'
+				height='150px'
+			
 			/>
 			<div className='z-20'>
 				<h2 className='text-xs font-bold md:text-md uppercase text-gray-500 dark:text-gray-500 pb-2 tracking-[10px] md:tracking-[15px] '>

@@ -18,12 +18,12 @@ function ContactMe({}: Props) {
 	}
 
 	return (
-		<div className='min-h-screen sm:h-screen flex relative flex-col text-center md:text-left md:flex-row max-w-7xl justify-evenly mx-auto items-center mt-16 '>
+		<div className='min-h-screen sm:h-screen lg:h-fit flex relative flex-col text-center md:text-left md:flex-row max-w-7xl justify-evenly mx-auto items-center mt-16 '>
 			<h3 className=' absolute top-10 sm:top-20  uppercase tracking-[10px] sm:tracking-[20px] text-gray-500 text-2xl pt-4'>
 				Contact
 			</h3>
 
-			<div className='flex flex-col space-y-2 sm:space-y-10 mt-20 p-4'>
+			<div className='flex flex-col space-y-2 sm:space-y-10 mt-20 p-4 lg:p-14'>
 				<h4 className='text-xl md:text-4xl font-semibold text-center '>
 					Drive - Work Ethic - Anything&apos;s Possible -{' '}
 					<span className='decoration-[#00FF15]/50 underline'>
@@ -34,17 +34,17 @@ function ContactMe({}: Props) {
 				<div className='space-y-4 '>
 					<div className='flex items-center space-x-4 justify-center'>
 						<PhoneIcon className='text-[#00FF15] h-7 w-7 animate-pulse' />
-						<p className='text-2xl'>+6281802246688</p>
+						<p className='text-xl'>+6281802246688</p>
 					</div>
 
 					<div className='flex items-center space-x-2 justify-center'>
 						<EnvelopeIcon className='text-[#04D9EB] h-7 w-7 animate-pulse' />
-						<p className='text-2xl'>williamjcollier4@gmail.com</p>
+						<p className='text-xl'>williamjcollier4@gmail.com</p>
 					</div>
 
 					<div className='flex items-center space-x-4 justify-center'>
 						<MapPinIcon className='text-[#FF00DB] h-7 w-7 animate-pulse' />
-						<p className='text-2xl'>+Bali, Indonesia</p>
+						<p className='text-xl'>Bali, Indonesia</p>
 					</div>
 				</div>
 

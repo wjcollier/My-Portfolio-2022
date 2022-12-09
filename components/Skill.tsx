@@ -20,7 +20,7 @@ export default function Skill({ directionTop, skill, setSelectedSkill }: Props) 
 			}}
 			transition={{ duration: 0.6 }}
 			onClick={() => setSelectedSkill(skill.title)}
-			className='p-1 dark:hover:bg-gray_800/30 shadow-md hover:bg-gray_200 bg-white/70 dark:bg-transparent shadow-gray_800/80 rounded-2xl transition-colors duration-300 relative flex cursor-pointer'>
+			className='p-1 dark:hover:bg-gray-800/30 shadow-lg hover:bg-gray-200  dark:bg-transparent shadow-gray-800/80 rounded-2xl transition-colors duration-300 relative flex cursor-pointer'>
 			<motion.img
 				initial={{
 					y: directionTop ? -100 : 100,
