@@ -33,24 +33,24 @@ function Projects({ projects }: Props) {
 			whileInView={{
 				opacity: 1,
 			}}
-			className=' h-screen  relative flex overflow-hidden flex-col text-left md:flex-row max-w-full justify-evenly mx-auto items-center z-0 '>
-			<h3 className='absolute top-24 uppercase tracking-[20px] text-gray-500 text-2xl '>
+			className='md:h-screen w-full relative overflow-hidden text-left flex flex-col justify-center mx-auto items-center z-0'>
+			<h3 className='absolute top-14 sm:top-20  uppercase tracking-[10px] sm:tracking-[20px] text-gray-500 text-2xl pt-5'>
 				Projects
 			</h3>
 
-			<div className='relative w-full flex space-x-5 overflow-x-scroll overflow-y-hidden p-10 snap-x scrollbar-thin  snap-mandatory  scrollbar-track-gray-400/20 scrollbar-thumb-[#FF00E4]/80 z-20 mt-20'>
+			<div className='relative w-full flex space-x-5 overflow-x-scroll overflow-y-hidden  snap-x scrollbar-thin  snap-mandatory  scrollbar-track-gray-400/20 scrollbar-thumb-[#FF00E4]/80 z-20 mt-20 '>
 				{projects?.sort(dateSortProjects).map((project, i) => (
 					<div
 						key={project._id}
-						className='w-screen flex-shrink-0 snap-center flex flex-col space-y-2 items-center justify-center p-10 md:p-44 mt-20'>
+						className='w-screen flex-shrink-0 snap-center flex flex-col space-y-1 items-center justify-center p-1 md:p-44 mt-16'>
 						<motion.img
-							initial={{ y: -300, opacity: 0 }}
+							initial={{  opacity: 0 }}
 							transition={{
 								duration: 1.2,
 							}}
 							whileInView={{
 								opacity: 1,
-								y: 0,
+								
 							}}
 							viewport={{
 								once: true,
@@ -62,17 +62,17 @@ function Projects({ projects }: Props) {
 							key={i}
 						/>
 
-						<div className='space-y-10 px-0 md:px-10 max-w-6xl'>
+						<div className='space-y-6 px-0 md:px-10 max-w-6xl'>
 							<p className='text-4xl font-semibold text-center mt-5'>
 								<a
 									href={project?.linkToBuild}
 									target='POST'
-									className='text-3xl flex justify-center items-center  font-normal text-center '>
+									className='text-2xl flex justify-center items-center  font-normal text-center '>
 									<span className='mb-5  hover:text-[#852999]'>
 										{project?.title}
 									</span>
 								</a>
-								
+
 								<a
 									href={project?.linkToRepo}
 									target='POST'
@@ -87,7 +87,7 @@ function Projects({ projects }: Props) {
 								</a>
 							</p>
 
-							<div className='flex space-x-10 items-center justify-center'>
+							<div className='flex space-x-5 items-center justify-center'>
 								{project?.technologies.map((technology) => (
 									// eslint-disable-next-line @next/next/no-img-element
 									<img
@@ -98,7 +98,7 @@ function Projects({ projects }: Props) {
 									/>
 								))}
 							</div>
-							<p className='text-sm  md:text-md lg:text-lg text-center md:text-left pb-20'>
+							<p className='text-sm  md:text-md lg:text-lg text-center md:text-left pr-4 pl-4 pb-20 '>
 								{project?.summary}
 							</p>
 						</div>

@@ -1,34 +1,34 @@
 /* eslint-disable react/no-unescaped-entities */
 import type { GetServerSideProps } from 'next'
-import Head from "next/head"
-import Image from "next/image"
-import Link from "next/link"
-import About from "../components/About"
-import ContactMe from "../components/ContactMe"
-import Header from "../components/Header"
-import Hero from "../components/Hero"
-import Projects from "../components/Projects"
-import Skills from "../components/Skills"
-import WorkExperience from "../components/WorkExperience"
+import Head from 'next/head'
+import Image from 'next/image'
+import Link from 'next/link'
+import About from '../components/About'
+import ContactMe from '../components/ContactMe'
+import Header from '../components/Header'
+import Hero from '../components/Hero'
+import Projects from '../components/Projects'
+import Skills from '../components/Skills'
+import WorkExperience from '../components/WorkExperience'
 
-import { Experience, PageInfo, Project, Skill, Social } from "../typings"
-import { fetchExperiences } from "../utils/fetchExperiences"
-import { fetchPageInfo } from "../utils/fetchPageInfo"
-import { fetchProjects } from "../utils/fetchProjects"
-import { fetchSkills } from "../utils/fetchSkills"
-import { fetchSocials } from "../utils/fetchSocials"
+import { Experience, PageInfo, Project, Skill, Social } from '../typings'
+import { fetchExperiences } from '../utils/fetchExperiences'
+import { fetchPageInfo } from '../utils/fetchPageInfo'
+import { fetchProjects } from '../utils/fetchProjects'
+import { fetchSkills } from '../utils/fetchSkills'
+import { fetchSocials } from '../utils/fetchSocials'
 
 type Props = {
-  pageInfo: PageInfo
-  experiences: Experience[]
-  skills: Skill[]
-  projects: Project[]
-  socials: Social[]
+	pageInfo: PageInfo
+	experiences: Experience[]
+	skills: Skill[]
+	projects: Project[]
+	socials: Social[]
 }
 
-const Home  = ({pageInfo, experiences, projects, skills, socials }: Props) => {
-  return (
-		<div className='bg-[rgb(36,36,36)] text-white h-screen snap-y snap-mandatory overflow-y-scroll overflow-x-hidden  z-0 scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[#FF00E4]/80'>
+const Home = ({ pageInfo, experiences, projects, skills, socials }: Props) => {
+	return (
+		<div className='bg-[rgb(36,36,36)] text-white h-screen snap-y snap-mandatory overflow-y-scroll overflow-x-hidden  z-0 scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[#FF00E4]/80 '>
 			<Head>
 				<link rel='shortcut icon' href='/skull-colors2.png' />
 				<title>{`${pageInfo?.name}'s - Portfolio`}</title>
@@ -40,11 +40,11 @@ const Home  = ({pageInfo, experiences, projects, skills, socials }: Props) => {
 				<Hero pageInfo={pageInfo} />
 			</section>
 
-			<section id='about' className='snap-center'>
+			<section id='about' className='snap-start'>
 				<About pageInfo={pageInfo} />
 			</section>
 
-			<section id='experience' className='snap-center'>
+			<section id='experience' className='snap-start'>
 				<WorkExperience experiences={experiences} />
 			</section>
 
@@ -61,10 +61,10 @@ const Home  = ({pageInfo, experiences, projects, skills, socials }: Props) => {
 			</section>
 
 			<Link href='#hero'>
-				<footer className='sticky bottom-5 w-full cursor-pointer'>
-					<div className='flex items-center justify-center'>
+				<footer className=' sm:sticky bottom-0  w-full cursor-pointer '>
+					<div className='flex items-center justify-center '>
 						<Image
-							className='h-5 w-5 rounded-full filter cursor-pointer hover:bg-orange-500'
+							className=' h-5 w-5 rounded-full filter cursor-pointer hover:bg-orange-500'
 							src='/ghostrider.jpeg'
 							alt='ghostrider'
 							width={40}
@@ -74,7 +74,7 @@ const Home  = ({pageInfo, experiences, projects, skills, socials }: Props) => {
 				</footer>
 			</Link>
 		</div>
-  )
+	)
 }
 
 export default Home
@@ -97,5 +97,3 @@ export const getServerSideProps: GetServerSideProps<Props> = async () => {
 		// revalidate: 10,
 	}
 }
-
-

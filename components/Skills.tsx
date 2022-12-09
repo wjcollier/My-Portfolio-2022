@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { motion } from 'framer-motion'
 import Skill from './Skill'
 import { Skill as SkillType  } from '../typings'
@@ -8,36 +8,40 @@ type Props = {
 }
 
 export default function Skills({skills}: Props) {
+  
+  const [selectedSkill, setSelectedSkill] = useState("");
+  const sortSkills = (skill1: SkillType, skill2: SkillType) => {
+    if (skill1.progress < skill2.progress) return 1;
+    if (skill1.progress > skill2.progress) return -1;
+    return 0;
+  };
   return (
-    <motion.div
-      initial={{
-        opacity: 0,
-      }}
-      transition={{
-        duration: 1.5,
-      }}
-      whileInView={{
-        opacity: 1,
-      }}
-      className='flex relative flex-col text-center md:text-left xl:flex-row max-w-[2000-px] xl:px-10 min-h-screen justify-center xl:space-y-0 mx-auto items-center '
-    >
-      <h3 className=' absolute top-24 uppercase tracking-[20px] text-gray-500 text-2xl'>
-        Tech Skills
-      </h3>
-
-      <h3 className='absolute top-36 uppercase tracking-[2px] text-gray-500 text-sm  '>
-        Hover over a skill for current proficiency
-      </h3>
-
-      <div className='grid grid-cols-4 gap-7 pt-20'>
-        {skills?.slice(0, skills.length / 2).map((skill) => (
-          <Skill key={skill._id} skill={skill} />
-        ))}
-
-        {skills?.slice(skills.length / 2, skills.length).map((skill) => (
-          <Skill key={skill._id} skill={skill} directionLeft/>
-        ))}
-      </div>
-    </motion.div>
+		<div className='flex relative flex-col text-center md:text-left  max-w-[2000px] xl:px-10 sm:h-screen  py-20 space-y-10 justify-start lg:justify-evenly   mx-auto items-center my-16 '>
+			<h3 className=' absolute top-14 uppercase  text-gray-500 text-2xl  z-40 md:tracking-[20px] tracking-[10px] text-gray_600 '>
+				Tech Skills
+			</h3>
+			<div className='grid grid-cols-3 mt-14  md:grid-cols-4 lg:grid-cols-5 gap-x-6 gap-y-4 lg:gap-x-10 lg:gap-y-8 '>
+				{skills?.sort(sortSkills).map((skill, ind, thisArr) => (
+					<Skill
+						setSelectedSkill={setSelectedSkill}
+						directionTop={ind % 2 === 0}
+						key={skill._id}
+						skill={skill}
+					/>
+				))}
+			</div>
+			<motion.div
+				key={selectedSkill}
+				initial={{ x: 30, opacity: 0 }}
+				whileInView={{ x: 0, opacity: 1 }}
+				transition={{ duration: 0.5 }}
+				className='h-5 flex flex-col gap-3 text-center'>
+				{
+					<p className='text-xl md:text-3xl italic  text-gray-200 font-bold'>
+						{selectedSkill}
+					</p>
+				}
+			</motion.div>
+		</div>
   )
-}
+};

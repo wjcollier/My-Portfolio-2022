@@ -1,33 +1,38 @@
-import React from "react"
+import React, { Dispatch, SetStateAction } from 'react'
 import { motion } from "framer-motion"
 import { Technology } from "../typings"
 import { urlFor } from "../sanity"
 
 type Props = {
-  skill: Technology
-  directionLeft?: boolean
+	skill: Technology
+	directionTop?: boolean
+	setSelectedSkill: Dispatch<SetStateAction<string>>
 }
 
-export default function Skill({ skill, directionLeft }: Props) {
-  return (
-    <div className='group relative flex cursor-pointer '>
-      <motion.img
-        initial={{
-          x: directionLeft ? -200 : 200,
-          opacity: 0,
-        }}
-        transition={{ duration: 1 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        src={urlFor(skill?.image).url()}
-        className='rounded-2xl border border-gray-500 object-cover w-16 h-16 md:w-20 md:h-20 xl:w-30 xl:h-30 filter group-hover:grayscale transition duration-300 ease-in-out  '
-      />
-
-      <div className='absolute opacity-0 group-hover:opacity-70 transition duration-300 ease-in-out group-hover:bg-white h-16 w-16 md:w-20 md:h-20 xl:w-30 xl:h-30 rounded-2xl z-0'>
-        <div className='flex items-center justify-center h-full'>
-          <p className=' text-3xl font-bold text-black opacity-100'>{skill.progress}%</p>
-        </div>
-      </div>
-    </div>
-  )
+export default function Skill({ directionTop, skill, setSelectedSkill }: Props) {
+	return (
+		<motion.div
+			whileTap={{
+				[directionTop ? 'rotateY' : 'rotateX']: directionTop
+					? 1000
+					: -1000,
+				scale: 1.5,
+			}}
+			transition={{ duration: 0.6 }}
+			onClick={() => setSelectedSkill(skill.title)}
+			className='p-1 dark:hover:bg-gray_800/30 shadow-md hover:bg-gray_200 bg-white/70 dark:bg-transparent shadow-gray_800/80 rounded-2xl transition-colors duration-300 relative flex cursor-pointer'>
+			<motion.img
+				initial={{
+					y: directionTop ? -100 : 100,
+					opacity: 0,
+				}}
+				whileInView={{ opacity: 1, y: 0 }}
+				viewport={{ once: true }}
+				transition={{ duration: 0.5 }}
+				className='h-16 w-16 lg:h-20 lg:w-20 rounded-2xl p-1 z-50 border-gray-500 object-fill filter group-hover:grayscale transition duration-300 ease-in-out'
+				src={urlFor(skill.image).url()}
+			/>
+		</motion.div>
+	)
 }
 
