@@ -5,6 +5,9 @@ import Image from "next/image"
 import Link from "next/link"
 import { PageInfo } from "../typings"
 import { urlFor } from "../sanity"
+import {
+  ArrowTopRightOnSquareIcon,
+} from "@heroicons/react/24/outline";
 
 type Props = {
   pageInfo: PageInfo
@@ -31,7 +34,6 @@ export default function Hero({ pageInfo }: Props) {
 				alt='cover image'
 				width='150px'
 				height='150px'
-			
 			/>
 			<div className='z-20'>
 				<h2 className='text-xs font-bold md:text-md uppercase text-gray-500 dark:text-gray-500 pb-2 tracking-[10px] md:tracking-[15px] '>
@@ -56,6 +58,14 @@ export default function Hero({ pageInfo }: Props) {
 						<button className='heroButton'>Projects</button>
 					</Link>
 				</div>
+				<a
+					className=' text-gray-400 transition-all  hover:text-[#9552FF]/90  gap-1 md:gap-2 font-normal lg:font-light flex justify-center items-center w-fit mx-auto pt-5 text-xs lg:text-base'
+					target={'_blank'}
+					rel='noreferrer'
+					href='https://wjcollier.github.io/WJC-resume-2022/'>
+					<span>Resume</span>
+					<ArrowTopRightOnSquareIcon height={'1rem'} width='1rem' />
+				</a>
 			</div>
 		</div>
   )
