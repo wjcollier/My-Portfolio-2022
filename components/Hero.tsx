@@ -17,8 +17,8 @@ export default function Hero({ pageInfo }: Props) {
   const [text] = useTypewriter({
 		words: [
 			`Hi, The Name's ${pageInfo?.name}`,
-			'Coder/Master Chef.tsx',
-			'< Future Rival to the Elon Musk Empire 🪐/>',
+			'Coder/Design-Dreamer.tsx',
+			'< Creator of Violent Light Labs™ 💥/>',
 		],
 
 		loop: true,
